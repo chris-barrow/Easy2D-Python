@@ -1,0 +1,630 @@
+TEST CASE #2 : Scattering Problem 
+ 
+NODAL POINT COORDINATES:  
+ 
+NODE #  1 	 X= 2.000 	 Y= 0.000  
+NODE #  2 	 X= 1.996 	 Y= 0.126  
+NODE #  3 	 X= 1.984 	 Y= 0.251  
+NODE #  4 	 X= 1.965 	 Y= 0.375  
+NODE #  5 	 X= 1.937 	 Y= 0.497  
+NODE #  6 	 X= 1.902 	 Y= 0.618  
+NODE #  7 	 X= 1.860 	 Y= 0.736  
+NODE #  8 	 X= 1.810 	 Y= 0.852  
+NODE #  9 	 X= 1.753 	 Y= 0.964  
+NODE #  10 	 X= 1.689 	 Y= 1.072  
+NODE #  11 	 X= 1.618 	 Y= 1.176  
+NODE #  12 	 X= 1.541 	 Y= 1.275  
+NODE #  13 	 X= 1.458 	 Y= 1.369  
+NODE #  14 	 X= 1.369 	 Y= 1.458  
+NODE #  15 	 X= 1.275 	 Y= 1.541  
+NODE #  16 	 X= 1.176 	 Y= 1.618  
+NODE #  17 	 X= 1.072 	 Y= 1.689  
+NODE #  18 	 X= 0.964 	 Y= 1.753  
+NODE #  19 	 X= 0.852 	 Y= 1.810  
+NODE #  20 	 X= 0.736 	 Y= 1.860  
+NODE #  21 	 X= 0.618 	 Y= 1.902  
+NODE #  22 	 X= 0.497 	 Y= 1.937  
+NODE #  23 	 X= 0.375 	 Y= 1.965  
+NODE #  24 	 X= 0.251 	 Y= 1.984  
+NODE #  25 	 X= 0.126 	 Y= 1.996  
+NODE #  26 	 X= -0.000 	 Y= 2.000  
+NODE #  27 	 X= -0.126 	 Y= 1.996  
+NODE #  28 	 X= -0.251 	 Y= 1.984  
+NODE #  29 	 X= -0.375 	 Y= 1.965  
+NODE #  30 	 X= -0.497 	 Y= 1.937  
+NODE #  31 	 X= -0.618 	 Y= 1.902  
+NODE #  32 	 X= -0.736 	 Y= 1.860  
+NODE #  33 	 X= -0.852 	 Y= 1.810  
+NODE #  34 	 X= -0.964 	 Y= 1.753  
+NODE #  35 	 X= -1.072 	 Y= 1.689  
+NODE #  36 	 X= -1.176 	 Y= 1.618  
+NODE #  37 	 X= -1.275 	 Y= 1.541  
+NODE #  38 	 X= -1.369 	 Y= 1.458  
+NODE #  39 	 X= -1.458 	 Y= 1.369  
+NODE #  40 	 X= -1.541 	 Y= 1.275  
+NODE #  41 	 X= -1.618 	 Y= 1.176  
+NODE #  42 	 X= -1.689 	 Y= 1.072  
+NODE #  43 	 X= -1.753 	 Y= 0.964  
+NODE #  44 	 X= -1.810 	 Y= 0.852  
+NODE #  45 	 X= -1.860 	 Y= 0.736  
+NODE #  46 	 X= -1.902 	 Y= 0.618  
+NODE #  47 	 X= -1.937 	 Y= 0.497  
+NODE #  48 	 X= -1.965 	 Y= 0.375  
+NODE #  49 	 X= -1.984 	 Y= 0.251  
+NODE #  50 	 X= -1.996 	 Y= 0.126  
+NODE #  51 	 X= -2.000 	 Y= -0.000  
+NODE #  52 	 X= -1.996 	 Y= -0.126  
+NODE #  53 	 X= -1.984 	 Y= -0.251  
+NODE #  54 	 X= -1.965 	 Y= -0.375  
+NODE #  55 	 X= -1.937 	 Y= -0.497  
+NODE #  56 	 X= -1.902 	 Y= -0.618  
+NODE #  57 	 X= -1.860 	 Y= -0.736  
+NODE #  58 	 X= -1.810 	 Y= -0.852  
+NODE #  59 	 X= -1.753 	 Y= -0.964  
+NODE #  60 	 X= -1.689 	 Y= -1.072  
+NODE #  61 	 X= -1.618 	 Y= -1.176  
+NODE #  62 	 X= -1.541 	 Y= -1.275  
+NODE #  63 	 X= -1.458 	 Y= -1.369  
+NODE #  64 	 X= -1.369 	 Y= -1.458  
+NODE #  65 	 X= -1.275 	 Y= -1.541  
+NODE #  66 	 X= -1.176 	 Y= -1.618  
+NODE #  67 	 X= -1.072 	 Y= -1.689  
+NODE #  68 	 X= -0.964 	 Y= -1.753  
+NODE #  69 	 X= -0.852 	 Y= -1.810  
+NODE #  70 	 X= -0.736 	 Y= -1.860  
+NODE #  71 	 X= -0.618 	 Y= -1.902  
+NODE #  72 	 X= -0.497 	 Y= -1.937  
+NODE #  73 	 X= -0.375 	 Y= -1.965  
+NODE #  74 	 X= -0.251 	 Y= -1.984  
+NODE #  75 	 X= -0.126 	 Y= -1.996  
+NODE #  76 	 X= -0.000 	 Y= -2.000  
+NODE #  77 	 X= 0.126 	 Y= -1.996  
+NODE #  78 	 X= 0.251 	 Y= -1.984  
+NODE #  79 	 X= 0.375 	 Y= -1.965  
+NODE #  80 	 X= 0.497 	 Y= -1.937  
+NODE #  81 	 X= 0.618 	 Y= -1.902  
+NODE #  82 	 X= 0.736 	 Y= -1.860  
+NODE #  83 	 X= 0.852 	 Y= -1.810  
+NODE #  84 	 X= 0.964 	 Y= -1.753  
+NODE #  85 	 X= 1.072 	 Y= -1.689  
+NODE #  86 	 X= 1.176 	 Y= -1.618  
+NODE #  87 	 X= 1.275 	 Y= -1.541  
+NODE #  88 	 X= 1.369 	 Y= -1.458  
+NODE #  89 	 X= 1.458 	 Y= -1.369  
+NODE #  90 	 X= 1.541 	 Y= -1.275  
+NODE #  91 	 X= 1.618 	 Y= -1.176  
+NODE #  92 	 X= 1.689 	 Y= -1.072  
+NODE #  93 	 X= 1.753 	 Y= -0.964  
+NODE #  94 	 X= 1.810 	 Y= -0.852  
+NODE #  95 	 X= 1.860 	 Y= -0.736  
+NODE #  96 	 X= 1.902 	 Y= -0.618  
+NODE #  97 	 X= 1.937 	 Y= -0.497  
+NODE #  98 	 X= 1.965 	 Y= -0.375  
+NODE #  99 	 X= 1.984 	 Y= -0.251  
+NODE #  100 	 X= 1.996 	 Y= -0.126  
+
+ ELEMENT CONNECTIVITY:  
+ 
+ELEMENT #  1  	 DEGREE= 2 	 NODES= 1  2  3 
+ELEMENT #  2  	 DEGREE= 2 	 NODES= 3  4  5 
+ELEMENT #  3  	 DEGREE= 2 	 NODES= 5  6  7 
+ELEMENT #  4  	 DEGREE= 2 	 NODES= 7  8  9 
+ELEMENT #  5  	 DEGREE= 2 	 NODES= 9  10  11 
+ELEMENT #  6  	 DEGREE= 2 	 NODES= 11  12  13 
+ELEMENT #  7  	 DEGREE= 2 	 NODES= 13  14  15 
+ELEMENT #  8  	 DEGREE= 2 	 NODES= 15  16  17 
+ELEMENT #  9  	 DEGREE= 2 	 NODES= 17  18  19 
+ELEMENT #  10  	 DEGREE= 2 	 NODES= 19  20  21 
+ELEMENT #  11  	 DEGREE= 2 	 NODES= 21  22  23 
+ELEMENT #  12  	 DEGREE= 2 	 NODES= 23  24  25 
+ELEMENT #  13  	 DEGREE= 2 	 NODES= 25  26  27 
+ELEMENT #  14  	 DEGREE= 2 	 NODES= 27  28  29 
+ELEMENT #  15  	 DEGREE= 2 	 NODES= 29  30  31 
+ELEMENT #  16  	 DEGREE= 2 	 NODES= 31  32  33 
+ELEMENT #  17  	 DEGREE= 2 	 NODES= 33  34  35 
+ELEMENT #  18  	 DEGREE= 2 	 NODES= 35  36  37 
+ELEMENT #  19  	 DEGREE= 2 	 NODES= 37  38  39 
+ELEMENT #  20  	 DEGREE= 2 	 NODES= 39  40  41 
+ELEMENT #  21  	 DEGREE= 2 	 NODES= 41  42  43 
+ELEMENT #  22  	 DEGREE= 2 	 NODES= 43  44  45 
+ELEMENT #  23  	 DEGREE= 2 	 NODES= 45  46  47 
+ELEMENT #  24  	 DEGREE= 2 	 NODES= 47  48  49 
+ELEMENT #  25  	 DEGREE= 2 	 NODES= 49  50  51 
+ELEMENT #  26  	 DEGREE= 2 	 NODES= 51  52  53 
+ELEMENT #  27  	 DEGREE= 2 	 NODES= 53  54  55 
+ELEMENT #  28  	 DEGREE= 2 	 NODES= 55  56  57 
+ELEMENT #  29  	 DEGREE= 2 	 NODES= 57  58  59 
+ELEMENT #  30  	 DEGREE= 2 	 NODES= 59  60  61 
+ELEMENT #  31  	 DEGREE= 2 	 NODES= 61  62  63 
+ELEMENT #  32  	 DEGREE= 2 	 NODES= 63  64  65 
+ELEMENT #  33  	 DEGREE= 2 	 NODES= 65  66  67 
+ELEMENT #  34  	 DEGREE= 2 	 NODES= 67  68  69 
+ELEMENT #  35  	 DEGREE= 2 	 NODES= 69  70  71 
+ELEMENT #  36  	 DEGREE= 2 	 NODES= 71  72  73 
+ELEMENT #  37  	 DEGREE= 2 	 NODES= 73  74  75 
+ELEMENT #  38  	 DEGREE= 2 	 NODES= 75  76  77 
+ELEMENT #  39  	 DEGREE= 2 	 NODES= 77  78  79 
+ELEMENT #  40  	 DEGREE= 2 	 NODES= 79  80  81 
+ELEMENT #  41  	 DEGREE= 2 	 NODES= 81  82  83 
+ELEMENT #  42  	 DEGREE= 2 	 NODES= 83  84  85 
+ELEMENT #  43  	 DEGREE= 2 	 NODES= 85  86  87 
+ELEMENT #  44  	 DEGREE= 2 	 NODES= 87  88  89 
+ELEMENT #  45  	 DEGREE= 2 	 NODES= 89  90  91 
+ELEMENT #  46  	 DEGREE= 2 	 NODES= 91  92  93 
+ELEMENT #  47  	 DEGREE= 2 	 NODES= 93  94  95 
+ELEMENT #  48  	 DEGREE= 2 	 NODES= 95  96  97 
+ELEMENT #  49  	 DEGREE= 2 	 NODES= 97  98  99 
+ELEMENT #  50  	 DEGREE= 2 	 NODES= 99  100  1 
+
+ BOUNDARY CONDITIONS:  
+ 
+ELEMENT #  1 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  2 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  3 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  4 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  5 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  6 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  7 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  8 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  9 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  10 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  11 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  12 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  13 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  14 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  15 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  16 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  17 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  18 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  19 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  20 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  21 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  22 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  23 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  24 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  25 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  26 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  27 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  28 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  29 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  30 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  31 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  32 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  33 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  34 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  35 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  36 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  37 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  38 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  39 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  40 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  41 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  42 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  43 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  44 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  45 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  46 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  47 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  48 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  49 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+ELEMENT #  50 
+LOCAL NODE #  1 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  2 	 CA=  0.000  CB=  1.000  CC= 0.000 
+LOCAL NODE #  3 	 CA=  0.000  CB=  1.000  CC= 0.000 
+
+ ==============EXTERIOR PROBLEM:=====================  
+ 
+V infiniti= 10.000 
+
+ CP ON THE NODES: 
+ 
+NODE #  1  CP=             0.500 
+NODE #  2  CP=             0.500 
+NODE #  3  CP=             0.498 
+NODE #  4  CP=             0.500 
+NODE #  5  CP=             0.498 
+NODE #  6  CP=             0.500 
+NODE #  7  CP=             0.500 
+NODE #  8  CP=             0.500 
+NODE #  9  CP=             0.500 
+NODE #  10  CP=             0.500 
+NODE #  11  CP=             0.500 
+NODE #  12  CP=             0.500 
+NODE #  13  CP=             0.500 
+NODE #  14  CP=             0.500 
+NODE #  15  CP=             0.500 
+NODE #  16  CP=             0.500 
+NODE #  17  CP=             0.500 
+NODE #  18  CP=             0.500 
+NODE #  19  CP=             0.500 
+NODE #  20  CP=             0.500 
+NODE #  21  CP=             0.500 
+NODE #  22  CP=             0.500 
+NODE #  23  CP=             0.503 
+NODE #  24  CP=             0.500 
+NODE #  25  CP=             0.501 
+NODE #  26  CP=             0.500 
+NODE #  27  CP=             0.501 
+NODE #  28  CP=             0.500 
+NODE #  29  CP=             0.503 
+NODE #  30  CP=             0.500 
+NODE #  31  CP=             0.500 
+NODE #  32  CP=             0.500 
+NODE #  33  CP=             0.500 
+NODE #  34  CP=             0.500 
+NODE #  35  CP=             0.500 
+NODE #  36  CP=             0.500 
+NODE #  37  CP=             0.500 
+NODE #  38  CP=             0.500 
+NODE #  39  CP=             0.500 
+NODE #  40  CP=             0.500 
+NODE #  41  CP=             0.500 
+NODE #  42  CP=             0.500 
+NODE #  43  CP=             0.500 
+NODE #  44  CP=             0.500 
+NODE #  45  CP=             0.500 
+NODE #  46  CP=             0.500 
+NODE #  47  CP=             0.498 
+NODE #  48  CP=             0.500 
+NODE #  49  CP=             0.498 
+NODE #  50  CP=             0.500 
+NODE #  51  CP=             0.500 
+NODE #  52  CP=             0.500 
+NODE #  53  CP=             0.498 
+NODE #  54  CP=             0.500 
+NODE #  55  CP=             0.498 
+NODE #  56  CP=             0.500 
+NODE #  57  CP=             0.500 
+NODE #  58  CP=             0.500 
+NODE #  59  CP=             0.500 
+NODE #  60  CP=             0.500 
+NODE #  61  CP=             0.500 
+NODE #  62  CP=             0.500 
+NODE #  63  CP=             0.500 
+NODE #  64  CP=             0.500 
+NODE #  65  CP=             0.500 
+NODE #  66  CP=             0.500 
+NODE #  67  CP=             0.500 
+NODE #  68  CP=             0.500 
+NODE #  69  CP=             0.500 
+NODE #  70  CP=             0.500 
+NODE #  71  CP=             0.500 
+NODE #  72  CP=             0.500 
+NODE #  73  CP=             0.503 
+NODE #  74  CP=             0.500 
+NODE #  75  CP=             0.501 
+NODE #  76  CP=             0.500 
+NODE #  77  CP=             0.501 
+NODE #  78  CP=             0.500 
+NODE #  79  CP=             0.503 
+NODE #  80  CP=             0.500 
+NODE #  81  CP=             0.500 
+NODE #  82  CP=             0.500 
+NODE #  83  CP=             0.500 
+NODE #  84  CP=             0.500 
+NODE #  85  CP=             0.500 
+NODE #  86  CP=             0.500 
+NODE #  87  CP=             0.500 
+NODE #  88  CP=             0.500 
+NODE #  89  CP=             0.500 
+NODE #  90  CP=             0.500 
+NODE #  91  CP=             0.500 
+NODE #  92  CP=             0.500 
+NODE #  93  CP=             0.500 
+NODE #  94  CP=             0.500 
+NODE #  95  CP=             0.500 
+NODE #  96  CP=             0.500 
+NODE #  97  CP=             0.498 
+NODE #  98  CP=             0.500 
+NODE #  99  CP=             0.498 
+NODE #  100  CP=             0.500 
+
+ PHI ON THE BOUNDARY:  
+ 
+NODE #  1  PHI=            40.003 
+NODE #  2  PHI=            39.924 
+NODE #  3  PHI=            39.688 
+NODE #  4  PHI=            39.294 
+NODE #  5  PHI=            38.747 
+NODE #  6  PHI=            38.048 
+NODE #  7  PHI=            37.200 
+NODE #  8  PHI=            36.196 
+NODE #  9  PHI=            35.053 
+NODE #  10  PHI=            33.772 
+NODE #  11  PHI=            32.355 
+NODE #  12  PHI=            30.818 
+NODE #  13  PHI=            29.161 
+NODE #  14  PHI=            27.383 
+NODE #  15  PHI=            25.504 
+NODE #  16  PHI=            23.523 
+NODE #  17  PHI=            21.440 
+NODE #  18  PHI=            19.275 
+NODE #  19  PHI=            17.032 
+NODE #  20  PHI=            14.710 
+NODE #  21  PHI=            12.351 
+NODE #  22  PHI=             9.942 
+NODE #  23  PHI=             7.497 
+NODE #  24  PHI=             5.016 
+NODE #  25  PHI=             2.522 
+NODE #  26  PHI=             0.000 
+NODE #  27  PHI=            -2.522 
+NODE #  28  PHI=            -5.016 
+NODE #  29  PHI=            -7.497 
+NODE #  30  PHI=            -9.942 
+NODE #  31  PHI=           -12.351 
+NODE #  32  PHI=           -14.710 
+NODE #  33  PHI=           -17.032 
+NODE #  34  PHI=           -19.275 
+NODE #  35  PHI=           -21.440 
+NODE #  36  PHI=           -23.523 
+NODE #  37  PHI=           -25.504 
+NODE #  38  PHI=           -27.383 
+NODE #  39  PHI=           -29.161 
+NODE #  40  PHI=           -30.818 
+NODE #  41  PHI=           -32.355 
+NODE #  42  PHI=           -33.772 
+NODE #  43  PHI=           -35.053 
+NODE #  44  PHI=           -36.196 
+NODE #  45  PHI=           -37.200 
+NODE #  46  PHI=           -38.048 
+NODE #  47  PHI=           -38.747 
+NODE #  48  PHI=           -39.294 
+NODE #  49  PHI=           -39.688 
+NODE #  50  PHI=           -39.924 
+NODE #  51  PHI=           -40.003 
+NODE #  52  PHI=           -39.924 
+NODE #  53  PHI=           -39.688 
+NODE #  54  PHI=           -39.294 
+NODE #  55  PHI=           -38.747 
+NODE #  56  PHI=           -38.048 
+NODE #  57  PHI=           -37.200 
+NODE #  58  PHI=           -36.196 
+NODE #  59  PHI=           -35.053 
+NODE #  60  PHI=           -33.772 
+NODE #  61  PHI=           -32.355 
+NODE #  62  PHI=           -30.818 
+NODE #  63  PHI=           -29.161 
+NODE #  64  PHI=           -27.383 
+NODE #  65  PHI=           -25.504 
+NODE #  66  PHI=           -23.523 
+NODE #  67  PHI=           -21.440 
+NODE #  68  PHI=           -19.275 
+NODE #  69  PHI=           -17.032 
+NODE #  70  PHI=           -14.710 
+NODE #  71  PHI=           -12.351 
+NODE #  72  PHI=            -9.942 
+NODE #  73  PHI=            -7.497 
+NODE #  74  PHI=            -5.016 
+NODE #  75  PHI=            -2.522 
+NODE #  76  PHI=            -0.000 
+NODE #  77  PHI=             2.522 
+NODE #  78  PHI=             5.016 
+NODE #  79  PHI=             7.497 
+NODE #  80  PHI=             9.942 
+NODE #  81  PHI=            12.351 
+NODE #  82  PHI=            14.710 
+NODE #  83  PHI=            17.032 
+NODE #  84  PHI=            19.275 
+NODE #  85  PHI=            21.440 
+NODE #  86  PHI=            23.523 
+NODE #  87  PHI=            25.504 
+NODE #  88  PHI=            27.383 
+NODE #  89  PHI=            29.161 
+NODE #  90  PHI=            30.818 
+NODE #  91  PHI=            32.355 
+NODE #  92  PHI=            33.772 
+NODE #  93  PHI=            35.053 
+NODE #  94  PHI=            36.196 
+NODE #  95  PHI=            37.200 
+NODE #  96  PHI=            38.048 
+NODE #  97  PHI=            38.747 
+NODE #  98  PHI=            39.294 
+NODE #  99  PHI=            39.688 
+NODE #  100  PHI=            39.924 
+
+ VELOCITY ON THE BOUNDARY: 
+ 
+ELEMENT #  1  	 V=            0.000            0.000            0.000 
+ELEMENT #  2  	 V=            0.000            0.000            0.000 
+ELEMENT #  3  	 V=            0.000            0.000            0.000 
+ELEMENT #  4  	 V=            0.000            0.000            0.000 
+ELEMENT #  5  	 V=            0.000            0.000            0.000 
+ELEMENT #  6  	 V=            0.000            0.000            0.000 
+ELEMENT #  7  	 V=            0.000            0.000            0.000 
+ELEMENT #  8  	 V=            0.000            0.000            0.000 
+ELEMENT #  9  	 V=            0.000            0.000            0.000 
+ELEMENT #  10  	 V=            0.000            0.000            0.000 
+ELEMENT #  11  	 V=            0.000            0.000            0.000 
+ELEMENT #  12  	 V=            0.000            0.000            0.000 
+ELEMENT #  13  	 V=            0.000            0.000            0.000 
+ELEMENT #  14  	 V=            0.000            0.000            0.000 
+ELEMENT #  15  	 V=            0.000            0.000            0.000 
+ELEMENT #  16  	 V=            0.000            0.000            0.000 
+ELEMENT #  17  	 V=            0.000            0.000            0.000 
+ELEMENT #  18  	 V=            0.000            0.000            0.000 
+ELEMENT #  19  	 V=            0.000            0.000            0.000 
+ELEMENT #  20  	 V=            0.000            0.000            0.000 
+ELEMENT #  21  	 V=            0.000            0.000            0.000 
+ELEMENT #  22  	 V=            0.000            0.000            0.000 
+ELEMENT #  23  	 V=            0.000            0.000            0.000 
+ELEMENT #  24  	 V=            0.000            0.000            0.000 
+ELEMENT #  25  	 V=            0.000            0.000            0.000 
+ELEMENT #  26  	 V=            0.000            0.000            0.000 
+ELEMENT #  27  	 V=            0.000            0.000            0.000 
+ELEMENT #  28  	 V=            0.000            0.000            0.000 
+ELEMENT #  29  	 V=            0.000            0.000            0.000 
+ELEMENT #  30  	 V=            0.000            0.000            0.000 
+ELEMENT #  31  	 V=            0.000            0.000            0.000 
+ELEMENT #  32  	 V=            0.000            0.000            0.000 
+ELEMENT #  33  	 V=            0.000            0.000            0.000 
+ELEMENT #  34  	 V=            0.000            0.000            0.000 
+ELEMENT #  35  	 V=            0.000            0.000            0.000 
+ELEMENT #  36  	 V=            0.000            0.000            0.000 
+ELEMENT #  37  	 V=            0.000            0.000            0.000 
+ELEMENT #  38  	 V=            0.000            0.000            0.000 
+ELEMENT #  39  	 V=            0.000            0.000            0.000 
+ELEMENT #  40  	 V=            0.000            0.000            0.000 
+ELEMENT #  41  	 V=            0.000            0.000            0.000 
+ELEMENT #  42  	 V=            0.000            0.000            0.000 
+ELEMENT #  43  	 V=            0.000            0.000            0.000 
+ELEMENT #  44  	 V=            0.000            0.000            0.000 
+ELEMENT #  45  	 V=            0.000            0.000            0.000 
+ELEMENT #  46  	 V=            0.000            0.000            0.000 
+ELEMENT #  47  	 V=            0.000            0.000            0.000 
+ELEMENT #  48  	 V=            0.000            0.000            0.000 
+ELEMENT #  49  	 V=            0.000            0.000            0.000 
+ELEMENT #  50  	 V=            0.000            0.000            0.000 
+
+ FIELD POINTS COORDINATES AND SOLUTIONS:  
+ 
+FIELD POINT #  1 	 X=  -3.000  Y  3.000   Phi=  -33.334   Velocity(X)=  10.000   Velocity(Y)=  1.111 
+FIELD POINT #  2 	 X=  3.000  Y  3.000   Phi=  33.334   Velocity(X)=  10.000   Velocity(Y)=  -1.111 
+FIELD POINT #  3 	 X=  -3.000  Y  -3.000   Phi=  -33.334   Velocity(X)=  10.000   Velocity(Y)=  -1.111 
+FIELD POINT #  4 	 X=  3.000  Y  -3.000   Phi=  33.334   Velocity(X)=  10.000   Velocity(Y)=  1.111 
