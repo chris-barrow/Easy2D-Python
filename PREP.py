@@ -8,14 +8,17 @@ def PREP(inputfilename):
     with open(inputfilename, 'r') as inputFile:
         InputText = inputFile.read().splitlines()
     outputFile = open('output.dat','w')
-    BLOCK = InputText{1}
-    NNN = str2num(BLOCK{3}) # Grabs number of nodes and records from input file
-    NNODE = NNN(1) # Gets number of nodes
-    NREC = NNN(2) # Gets number of records
-    EEE = str2num(BLOCK{5+NREC}) # Gets number of elements and records
-    NELEM = EEE(1) # Number of elements
-    EREC = EEE(2) # Number of element records
-    BREC = str2num(BLOCK{7+NREC+EREC}) # Gets number of records for BCs
+#    BLOCK = InputText{1}
+#    NNN = str2num(BLOCK{3}) # Grabs number of nodes and records from input file
+    NNN = list(map(int, inputText[2].split(','))) # Grabs number of nodes and records from input file
+    NNODE = NNN[1] # Gets number of nodes
+    NREC = NNN[2] # Gets number of records
+#    EEE = str2num(BLOCK{5+NREC}) # Gets number of elements and records
+    EEE = list(map(int, inputText[5+NREC].split(','))) # Gets number of elements and records
+    NELEM = EEE[1] # Number of elements
+    EREC = EEE[2] # Number of element records
+#    BREC = str2num(BLOCK{7+NREC+EREC}) # Gets number of records for BCs
+    BREC = list(map(int, inputText[7+NREC+EREC].split(','))) # Gets number of records for BCs
     Field = 0
     Exterior = 0
     FREC = 0
