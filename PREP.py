@@ -6,8 +6,34 @@ def PREP(inputfilename):
     # inputfilename='TestCase2_2.dat';
     InputText = ""
     with open(inputfilename, 'r') as inputFile:
-        InputText = inputFile.read().splitlines()
+        inputText = inputFile.read().splitlines()
     outputFile = open('output.dat','w')
+
+    # Check for required commands and grab index
+    try:
+        NODES_idx = inputText.index('NODES')
+    except e:
+        print('Error on NODES Command')
+        return
+
+    try:
+        ELEM_idx = inputText.index('ELEMENTS')
+    except e:
+        print('Error on ELEMENTS Command')
+        return
+
+    try:
+        BC_idx = inputText.index('BOUNDARY CONDITIONS')
+    except e:
+        print('Error on BOUNDARY CONDITIONS Command')
+        return
+
+    try:
+        SOLVE_idx = inputText.index('SOLVE')
+    except e:
+        print('Error on SOLVE Command')
+        return
+
 #    BLOCK = InputText{1}
 #    NNN = str2num(BLOCK{3}) # Grabs number of nodes and records from input file
     NNN = list(map(int, inputText[2].split(','))) # Grabs number of nodes and records from input file
@@ -22,17 +48,17 @@ def PREP(inputfilename):
     Field = 0
     Exterior = 0
     FREC = 0
-    if strcmp(BLOCK{2},'NODES')  == 0
-        disp('Error on NODES Command')
-        return
-
-    if strcmp(BLOCK{4+NREC},'ELEMENTS') == 0
-        disp('Error on ELEMENTS Command')
-        return
-
-    if strcmp(BLOCK{6+NREC+EREC},'BOUNDARY CONDITIONS')==0
-        disp('Error on BOUNDARY CONDITIONS Command')
-        return
+#     if strcmp(BLOCK{2},'NODES')  == 0
+#         disp('Error on NODES Command')
+#         return
+#
+#     if strcmp(BLOCK{4+NREC},'ELEMENTS') == 0
+#         disp('Error on ELEMENTS Command')
+#         return
+#
+#     if strcmp(BLOCK{6+NREC+EREC},'BOUNDARY CONDITIONS')==0
+#         disp('Error on BOUNDARY CONDITIONS Command')
+#         return
 
     if strcmp(BLOCK{8+NREC+EREC+BREC},'SOLVE') == 0
         if strcmp(BLOCK{8+NREC+EREC+BREC},'FIELD') == 1
@@ -56,9 +82,9 @@ def PREP(inputfilename):
     if Exterior==0
         VINF=0
 
-    if strcmp(BLOCK{8+NREC+EREC+BREC+FREC+Field+Exterior},'SOLVE')==0
-        disp('Couldnt Catch SOLVE Command, Solution Terminated')
-        return
+#     if strcmp(BLOCK{8+NREC+EREC+BREC+FREC+Field+Exterior},'SOLVE')==0
+#         disp('Couldnt Catch SOLVE Command, Solution Terminated')
+#         return
 
     fprintf(outputFile,'%s \n \n', BLOCK{1})
     nodes=zeros(NNN(2),6)
