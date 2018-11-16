@@ -1,3 +1,5 @@
+import numpy as np
+
 def PREP(inputfilename):
     """
     PREPROCESSOR
@@ -12,91 +14,62 @@ def PREP(inputfilename):
     # Check for required commands and grab index
     try:
         NODES_idx = inputText.index('NODES')
+        NNN = np.fromstring(inputText[NODES_idx+1], dtype=int, sep=',') # Grabs number of nodes and records from input file
+        NNODE = NNN[1] # Gets number of nodes
+        NREC = NNN[2] # Gets number of records
     except e:
         print('Error on NODES Command')
-        return
+        return e
 
     try:
         ELEM_idx = inputText.index('ELEMENTS')
+        EEE = np.fromstring(inputText[ELEM_idx+1], dtype=int, sep=',') # Gets number of elements and records
+        NELEM = EEE[1] # Number of elements
+        EREC = EEE[2] # Number of element records
     except e:
         print('Error on ELEMENTS Command')
-        return
+        return e
 
     try:
         BC_idx = inputText.index('BOUNDARY CONDITIONS')
+        BREC = np.fromstring(inputText[BC_idx+1], dtype=int, sep=',') # Gets number of records for BCs
     except e:
         print('Error on BOUNDARY CONDITIONS Command')
-        return
+        return e
 
     try:
         SOLVE_idx = inputText.index('SOLVE')
     except e:
         print('Error on SOLVE Command')
-        return
+        return e
 
-#    BLOCK = InputText{1}
-#    NNN = str2num(BLOCK{3}) # Grabs number of nodes and records from input file
-    NNN = list(map(int, inputText[2].split(','))) # Grabs number of nodes and records from input file
-    NNODE = NNN[1] # Gets number of nodes
-    NREC = NNN[2] # Gets number of records
-#    EEE = str2num(BLOCK{5+NREC}) # Gets number of elements and records
-    EEE = list(map(int, inputText[5+NREC].split(','))) # Gets number of elements and records
-    NELEM = EEE[1] # Number of elements
-    EREC = EEE[2] # Number of element records
-#    BREC = str2num(BLOCK{7+NREC+EREC}) # Gets number of records for BCs
-    BREC = list(map(int, inputText[7+NREC+EREC].split(','))) # Gets number of records for BCs
     Field = 0
     Exterior = 0
     FREC = 0
-#     if strcmp(BLOCK{2},'NODES')  == 0
-#         disp('Error on NODES Command')
-#         return
-#
-#     if strcmp(BLOCK{4+NREC},'ELEMENTS') == 0
-#         disp('Error on ELEMENTS Command')
-#         return
-#
-#     if strcmp(BLOCK{6+NREC+EREC},'BOUNDARY CONDITIONS')==0
-#         disp('Error on BOUNDARY CONDITIONS Command')
-#         return
+    try:
+        FIELD_idx = inputText.index('FIELD')
+        FREC = np.fromstring(inputText[FIELD_idx+1], dtype=int, sep=',')
+        Field = 2
+    except e:
+        pass
 
-    if strcmp(BLOCK{8+NREC+EREC+BREC},'SOLVE') == 0
-        if strcmp(BLOCK{8+NREC+EREC+BREC},'FIELD') == 1
-            FREC = str2num(BLOCK{9+NREC+EREC+BREC})
-            Field = 2
-            Exterior = 0
-            if (strcmp(BLOCK{10+NREC+EREC+BREC+FREC},'EXTERIOR')==1)
-                if(strcmp(BLOCK{11+NREC+EREC+BREC+FREC},'VINF')==1)
-                    VINF =  str2num(BLOCK{12+NREC+EREC+BREC+FREC})
+    if 'EXTERIOR' in inputText:
+        Exterior = 3
+        if 'VINF' in inputText:
+            VINF = np.fromstring(inputText[inputText.index('VINF')+1],
+                                 dtype=int, sep=',')
 
-                Exterior = 3
+    outputFile.write('{}\n\n'.format(inputText[0]))
+    nodes = np.zeros((NREC,6))
+    for i in range(4, NREC+3):
+        nodes[i-3,:] = np.fromstring(inputText[i], sep=',')
 
-        else
-            if (strcmp(BLOCK{8+NREC+EREC+BREC},'EXTERIOR')==1)
-                if (strcmp(BLOCK{9+NREC+EREC+BREC},'VINF')==1)
-                    VINF=str2num(BLOCK{10+NREC+EREC+BREC})
-
-                Field=0
-                Exterior=3
-
-    if Exterior==0
-        VINF=0
-
-#     if strcmp(BLOCK{8+NREC+EREC+BREC+FREC+Field+Exterior},'SOLVE')==0
-#         disp('Couldnt Catch SOLVE Command, Solution Terminated')
-#         return
-
-    fprintf(outputFile,'%s \n \n', BLOCK{1})
-    nodes=zeros(NNN(2),6)
-    for i=4:NREC+3
-        nodes(i-3,:)= str2num(BLOCK{i})
-
-    N1=nodes(:,1)
-    N2=nodes(:,2)
-    X1=nodes(:,3)
-    Y1=nodes(:,4)
-    X2=nodes(:,5)
-    Y2=nodes(:,6)
+    N1=nodes[:,1]
+    N2=nodes[:,2]
+    X1=nodes[:,3]
+    Y1=nodes[:,4]
+    X2=nodes[:,5]
+    Y2=nodes[:,6]
     [X,Y]=Rnode(outputFile,NNODE,NREC,N1,N2,X1,Y1,X2,Y2)
     elements=zeros(EREC,4)
     for j=6+NREC:6+NREC+EREC-1
