@@ -2,8 +2,8 @@ import numpy as np
 
 
 def Rnode(outputFile, NNODE, NREC, N1, N2, X1, Y1, X2, Y2):
-    X = np.zeros((4, 1))
-    Y = np.zeros((4, 1))
+    X = np.zeros((NNODE, 1))
+    Y = np.zeros((NNODE, 1))
     for NR in range(0, NREC):
         #######################################################################
         #                                                                     #
@@ -23,7 +23,8 @@ def Rnode(outputFile, NNODE, NREC, N1, N2, X1, Y1, X2, Y2):
             DY = (Y2[NR] - Y1[NR])/DN
             XX = X1[NR] - DX
             YY = Y1[NR] - DY
-            for I in range(N1[NR], N2[NR]):
+            import ipdb; ipdb.set_trace()  # XXX Breakpoint
+            for I in range(int(N1[NR]) - 1, int(N2[NR])):
                 XX = XX+DX
                 YY = YY+DY
                 X[I] = XX

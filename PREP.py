@@ -1,6 +1,6 @@
 import numpy as np
-import Rnode
-import Relem
+from Rnode import Rnode
+from Relem import Relem
 
 
 def PREP(inputfilename):
@@ -19,8 +19,8 @@ def PREP(inputfilename):
         NODES_idx = inputText.index('NODES')
         # Grabs number of nodes and records from input file
         NNN = np.fromstring(inputText[NODES_idx+1], dtype=int, sep=',')
-        NNODE = NNN[1]  # Gets number of nodes
-        NREC = NNN[2]  # Gets number of records
+        NNODE = NNN[0]  # Gets number of nodes
+        NREC = NNN[1]  # Gets number of records
     except Exception:
         print('Error on NODES Command')
         return
@@ -29,8 +29,8 @@ def PREP(inputfilename):
         ELEM_idx = inputText.index('ELEMENTS')
         # Gets number of elements and records
         EEE = np.fromstring(inputText[ELEM_idx+1], dtype=int, sep=',')
-        NELEM = EEE[1]  # Number of elements
-        EREC = EEE[2]   # Number of element records
+        NELEM = EEE[0]  # Number of elements
+        EREC = EEE[1]   # Number of element records
     except Exception:
         print('Error on ELEMENTS Command')
         return
@@ -67,15 +67,15 @@ def PREP(inputfilename):
 
     outputFile.write('{}\n\n'.format(inputText[0]))
     nodes = np.zeros((NREC, 6))
-    for i, node in enumerate(inputText[NODES_idx:NODES_idx+NREC+2]):
+    for i, node in enumerate(inputText[NODES_idx+2:NODES_idx+NREC+2]):
         nodes[i, :] = np.fromstring(node, sep=',')
 
-    N1 = nodes[:, 1]
-    N2 = nodes[:, 2]
-    X1 = nodes[:, 3]
-    Y1 = nodes[:, 4]
-    X2 = nodes[:, 5]
-    Y2 = nodes[:, 6]
+    N1 = nodes[:, 0]
+    N2 = nodes[:, 1]
+    X1 = nodes[:, 2]
+    Y1 = nodes[:, 3]
+    X2 = nodes[:, 4]
+    Y2 = nodes[:, 5]
     [X, Y] = Rnode(outputFile, NNODE, NREC, N1, N2, X1, Y1, X2, Y2)
 
     elements = np.zeros((EREC, 4))
