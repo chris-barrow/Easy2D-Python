@@ -79,13 +79,13 @@ def PREP(inputfilename):
     [X, Y] = Rnode(outputFile, NNODE, NREC, N1, N2, X1, Y1, X2, Y2)
 
     elements = np.zeros((EREC, 4))
-    for j, elem in enumerate(inputText[ELEM_idx+2:EREC+2]):
+    for j, elem in enumerate(inputText[ELEM_idx+2:ELEM_idx+EREC+2]):
         elements[j, :] = np.fromstring(elem, sep=',')
 
-    NODEI = elements[:, 1]
-    NODEL = elements[:, 2]
-    NUMBER = elements[:, 3]
-    KINDI = elements[:, 4]
+    NODEI = elements[:, 0].astype(int)
+    NODEL = elements[:, 1].astype(int)
+    NUMBER = elements[:, 2].astype(int)
+    KINDI = elements[:, 3].astype(int)
     [NODE, KIND] = Relem(outputFile, NNODE, NELEM, EREC, NODEI, NODEL, NUMBER,
                          KINDI)
 

@@ -23,7 +23,6 @@ def Rnode(outputFile, NNODE, NREC, N1, N2, X1, Y1, X2, Y2):
             DY = (Y2[NR] - Y1[NR])/DN
             XX = X1[NR] - DX
             YY = Y1[NR] - DY
-            import ipdb; ipdb.set_trace()  # XXX Breakpoint
             for I in range(int(N1[NR]) - 1, int(N2[NR])):
                 XX = XX+DX
                 YY = YY+DY
@@ -31,8 +30,8 @@ def Rnode(outputFile, NNODE, NREC, N1, N2, X1, Y1, X2, Y2):
                 Y[I] = YY
 
     outputFile.write('{}\n\n'.format('NODAL POINT COORDINATES:'))
-    for I in range(1, NNODE):
+    for I in range(0, NNODE):
         outputFile.write('{} {:d} \t {} {:3.3f} \t {} {:3.3f} \n'.format(
-            'NODE # ', I, 'X=', X(I), 'Y=', Y(I)))
+            'NODE # ', I+1, 'X=', float(X[I]), 'Y=', float(Y[I])))
 
     return [X, Y]
