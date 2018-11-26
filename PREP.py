@@ -1,6 +1,7 @@
 import numpy as np
 from Rnode import Rnode
 from Relem import Relem
+from BC import BC
 
 
 def PREP(inputfilename):
@@ -38,7 +39,7 @@ def PREP(inputfilename):
     try:
         BC_idx = inputText.index('BOUNDARY CONDITIONS')
         # Gets number of records for BCs
-        BREC = np.fromstring(inputText[BC_idx+1], dtype=int, sep=',')
+        BREC = np.fromstring(inputText[BC_idx+1], dtype=int, sep=',')[0]
     except Exception:
         print('Error on BOUNDARY CONDITIONS Command')
         return
@@ -54,7 +55,7 @@ def PREP(inputfilename):
     FREC = 0
     try:
         FIELD_idx = inputText.index('FIELD')
-        FREC = np.fromstring(inputText[FIELD_idx+1], dtype=int, sep=',')
+        FREC = np.fromstring(inputText[FIELD_idx+1], dtype=int, sep=',')[0]
         Field = 2
     except Exception:
         pass
@@ -63,7 +64,7 @@ def PREP(inputfilename):
         Exterior = 3
         if 'VINF' in inputText:
             VINF = np.fromstring(inputText[inputText.index('VINF')+1],
-                                 dtype=int, sep=',')
+                                 dtype=int, sep=',')[0]
 
     outputFile.write('{}\n\n'.format(inputText[0]))
     nodes = np.zeros((NREC, 6))
@@ -90,25 +91,25 @@ def PREP(inputfilename):
                          KINDI)
 
     bcs = np.zeros((BREC, 6))
-    for k, BC in enumerate(inputText[BC_idx + 2:BC_idx+BREC+1]):
-        bcs[k, :] = np.fromstring(BC, sep=',')
+    for k, bc in enumerate(inputText[BC_idx + 2:BC_idx+BREC+2]):
+        bcs[k, :] = np.fromstring(bc, sep=',')
 
-    K1 = bcs[:, 1]
-    K2 = bcs[:, 2]
-    NOD = bcs[:, 3]
-    CA1 = bcs[:, 4]
-    CB1 = bcs[:, 5]
-    CC1 = bcs[:, 6]
+    K1 = bcs[:, 0].astype(int) - 1
+    K2 = bcs[:, 1].astype(int) - 1
+    NOD = bcs[:, 2].astype(int)
+    CA1 = bcs[:, 3]
+    CB1 = bcs[:, 4]
+    CC1 = bcs[:, 5]
     [TEMP, CA, CB, CC] = BC(outputFile, NNODE, NELEM, NODE, KIND, BREC, K1, K2,
                             NOD, CA1, CB1, CC1)
-    if Field == 2:
-        FIELDS = np.zeros(FREC, 2)
-        for l in range(10+NREC+EREC+BREC, 10+NREC+EREC+BREC+FREC-1):
-            FIELDS[l-9-NREC-EREC-BREC, :] = np.fromstring(inputText[i],
-                                                          sep=',')
 
-        Px = FIELDS[:, 1]
-        Py = FIELDS[:, 2]
+    if Field == 2:
+        FIELDS = np.zeros((FREC, 2))
+        for l, FIELD in enumerate(inputText[FIELD_idx+2:FIELD_idx+FREC+2]):
+            FIELDS[l, :] = np.fromstring(FIELD, sep=',')
+
+        Px = FIELDS[:, 0]
+        Py = FIELDS[:, 1]
 
     return [outputFile, NNODE, NELEM, X, Y, NODE, KIND, TEMP, CA, CB, CC, FREC,
             Field, Exterior, Px, Py, VINF]

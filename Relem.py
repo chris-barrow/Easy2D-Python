@@ -56,14 +56,15 @@ def Relem(fid2, NNODE, NELEM, EREC, NODEI, NODEL, NUMBER, KINDI):
             n1 = NODEI[NR] + INCREM
             for J in range(0, KINDI[NR]+1):
                 NODE[J, I] = n1 + J - 1
-                if NODE[J, I] > NNODE:
-                    NODE[J, I] = 1
+                if NODE[J, I] > NNODE-1:
+                    NODE[J, I] = 0
 
             INCREM = INCREM + KINDI[NR]
 
         if NODEI[NR] > NODEL[NR]:
             NODE[KINDI[NR]+1, NE+NUMBER[NR]-1] = NODEL[NR]
 
+    KIND = KIND.astype(int)
     fid2.write('\n {}  \n \n'.format('ELEMENT CONNECTIVITY:'))
     for I in range(0, NELEM):
         if KIND[I] == 1:
@@ -84,5 +85,4 @@ def Relem(fid2, NNODE, NELEM, EREC, NODEI, NODEL, NUMBER, KINDI):
                                               NODE[0, I], NODE[1, I],
                                               NODE[2, I], NODE[3, I]))
 
-    fid2.close()
     return [NODE, KIND]
