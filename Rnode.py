@@ -15,8 +15,8 @@ def Rnode(outputFile, NNODE, NREC, N1, N2, X1, Y1, X2, Y2):
         #                                                                     #
         #######################################################################
         if N1[NR] == N2[NR]:
-            X[N1[NR]] = X1[NR]
-            Y[N1[NR]] = Y1[NR]
+            X[int(N1[NR])-1] = X1[NR]
+            Y[int(N1[NR])-1] = Y1[NR]
         else:
             DN = N2[NR] - N1[NR]
             DX = (X2[NR] - X1[NR])/DN
