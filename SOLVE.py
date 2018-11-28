@@ -13,4 +13,4 @@ import numpy as np
 
 def solve(A,B):
     XS = np.linalg.solve(A,B)
-    return XS
+    return XS,A,B

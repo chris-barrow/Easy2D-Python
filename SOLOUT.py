@@ -11,15 +11,15 @@ Created on Tue Nov 20 10:58:36 2018
 # Import necessary Python Packages
 import numpy as np
 
-def Solout(fid2,NNODE, NELEM, KIND, NODE, CP, TEMP, CA, CB, CC, XS,Exterior):
+def solout(fid2,NNODE, NELEM, KIND, NODE, CP, TEMP, CA, CB, CC, XS,Exterior):
     #
     #   IDENTIFY THE SOLUTION VECTOR
     #
     BIG = 1.0e15
-    DTDN = np.zeros(4,NELEM)
+    DTDN = np.zeros((4,NELEM))
     for I in range(NNODE):
-        if TEMP[I]==BIG:
-            TEMP[I] = XS[I]
+        if TEMP[0,I]==BIG:
+            TEMP[0,I] = XS[I]
     
     for K in range(NELEM):
         NL = KIND[K]+1
@@ -28,7 +28,7 @@ def Solout(fid2,NNODE, NELEM, KIND, NODE, CP, TEMP, CA, CB, CC, XS,Exterior):
             if CB[J,K]==0.0:
                 DTDN[J,K] = XS[NOD]
             else:
-                DTDN[J,K] = (CC[J,K]-CA[J,K]*TEMP[NOD]) / CB[J,K]
+                DTDN[J,K] = (CC[J,K]-CA[J,K]*TEMP[0,int(NOD)]) / CB[J,K]
             
         
     ## From here on I dont know yet...
@@ -62,5 +62,17 @@ def Solout(fid2,NNODE, NELEM, KIND, NODE, CP, TEMP, CA, CB, CC, XS,Exterior):
 #        end
 #        if KIND(K)==3
 #            fprintf(fid2,'%s %i  \t %s  %15.3f  %15.3f  %15.3f  %15.3f \n', 'ELEMENT # ',K ,hh,DTDN(1,K), DTDN(2,K),DTDN(3,K),DTDN(4,K) );
-#        
+#      
+    fid2.write('\n {} \n \n'.format('CP ON THE NODES:'))
+    for I in range(0, NNODE):
+        fid2.write('{} {:d} \t {} {:3.3f} \n'.format('NODE # ', I+1, 'CP =', float(CP[I])))
+                   
+    fid2.write('\n {} \n \n'.format('PHI ON THE BOUNDARY:'))
+    for I in range(0, NNODE):
+        fid2.write('{} {:d} \t {} {:3.3f} \n'.format('NODE # ', I+1, 'PHI =', float(TEMP[0,I])))
+                   
+    fid2.write('\n {} \n \n'.format('VELOCITY ON THE BOUNDARY:'))
+    for K in range(0, NELEM):
+        fid2.write('{} {:d} \t {} {:3.3f} \t {} {:3.3f} \n'.format('ELEMENT # ', K+1, 'V1 =', float(DTDN[0,K]) , 'V2 =', float(DTDN[1,K]) ))
+    
     return DTDN,TEMP

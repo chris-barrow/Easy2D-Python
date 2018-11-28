@@ -5,12 +5,13 @@ A Boundary Element Method (BEM) solver using python.
 
 Author(s):
     Christopher Barrow
-    Simeon Schmitt
+    Simon Schmitt
 """
 
 import os
 import numpy as np
 import PREP
+from PROC import proc
 
 
 def easy2D(inputFileName=None):
@@ -18,11 +19,12 @@ def easy2D(inputFileName=None):
         inputFileName = input('Specify input file name: ')
 
     # This should just be getting the Gaussian Quadrature
-    [XI, W] = np.polynomial.legendre.leggauss(5)
+    XI, W = np.polynomial.legendre.leggauss(1)
     XIPMAP = SETMAP()
     [fid2, NNODE, NELEM, X, Y, NODE, KIND, TEMP, CA, CB, CC, FREC, Field,
      Exterior, Px, Py, VINF] = PREP.PREP(inputFileName)
-    # [CP,DTDN,TEMP,XS,A,B,PhiP,dPhidPX,dPhidPY,QN]=PROC(fid2,XI, W, NNODE, NELEM, X, Y, NODE, KIND, TEMP, XIPMAP, CA,CB, CC, FREC,Field, Exterior,Px,Py,VINF)
+#    [CP,DTDN,TEMP,XS,A,B,PhiP,dPhidPX,dPhidPY,QN]= proc(fid2,XI, W, NNODE, NELEM, X, Y, NODE, KIND, TEMP, XIPMAP, CA,CB, CC, FREC,Field, Exterior,Px,Py,VINF)
+    [CP,DTDN,TEMP,XS,A,B]= proc(fid2,XI, W, NNODE, NELEM, X, Y, NODE, KIND, TEMP, XIPMAP, CA,CB, CC, FREC,Field, Exterior,Px,Py,VINF)
     # fclose(fid2)
 
 
@@ -47,4 +49,8 @@ def SETMAP():
     return XIPMAP
 
 if __name__ == "__main__":
-    easy2D("Easy2D_MATLAB\TestCase1.dat")
+    # Windows
+#    easy2D("Easy2D_MATLAB\TestCase1.dat")
+    # Mac
+    #easy2D("Easy2D_MATLAB/TestCase1.dat")
+    easy2D("Easy2D_MATLAB/TestCase2.dat")

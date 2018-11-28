@@ -11,21 +11,22 @@ Created on Thu Nov 22 10:51:00 2018
 # Import necessary Python Packages
 import numpy as np
 # Import BEM functions
-import GETINT.getint as getint
-import SHAPE.shape as shape
+from GETINT import getint
+from SHAPE import shape
 
-def Sing(XP,YP,NL,KINDI,XQ,YQ,XI,W,ISING,XIPMAP,CP,Exterior):
+def sing(XP,YP,NL,KINDI,XQ,YQ,XI,W,ISING,XIPMAP,CP,Exterior):
     #
     #---- CALL SETMAP in the EASY2D to set up XIPMAP(4,3) first
     #
     C1 = -1/(2*np.pi)
-    H = np.zeros(1,NL)
-    G = np.zeros(1,NL)
+    H = np.zeros(NL)
+    G = np.zeros(NL)
     NINP, ETA, WT = getint(KINDI,XI,W)
-    XIP = XIPMAP(ISING, KINDI)
+    XIP = XIPMAP[ISING, KINDI]
     #
     #---- THIS LOOP IS FOR THE PURPOSE OF INTEGRATING TO THE RIGHT OF P
     #
+    QN = np.zeros(2)
     if XIP != 1:
         for INP in range(NINP):
             A = np.sqrt(1-XIP)/2

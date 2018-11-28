@@ -18,12 +18,14 @@ def getint(KINDI,XI,W):
         NINP = 6
     else:
         NINP = 8
-    NARRAY = NINP/2
-    XII = np.zeros(NINP,NARRAY) # integration points
-    WT = np.zeros(NINP,NARRAY) # weights
-    # loop over integration points
-    for I in range(NINP):
-        XII[I] = XI[I,NARRAY]
-        WT[I] = W[I,NARRAY]
+#    NARRAY = NINP/2
+#    XII = np.zeros([NINP,int(NARRAY)]) # integration points
+#    WT = np.zeros([NINP,int(NARRAY)]) # weights
+#    # loop over integration points
+#    for I in range(NINP):
+#        XII[I,:] = XI[I]
+#        WT[I,:] = W[I]
+        
+    XII, WT = np.polynomial.legendre.leggauss(NINP)
     
     return NINP, XII, WT

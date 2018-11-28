@@ -70,7 +70,7 @@ def Relem(fid2, NNODE, NELEM, EREC, NODEI, NODEL, NUMBER, KINDI):
         if KIND[I] == 1:
             fid2.write('{} {}  \t {} {} \t {} {} {} '
                        '\n'.format('ELEMENT #', I+1, 'DEGREE=', KIND[I],
-                                   'NODES=', NODE[0, I], NODE[1, I]))
+                                   'NODES=', int(NODE[0, I])+1, int(NODE[1, I])+1))
 
         if KIND[I] == 2:
             fid2.write('{} {} \t {} {} \t'

@@ -11,20 +11,21 @@ Created on Thu Nov 22 10:37:23 2018
 # Import necessary Python Packages
 import numpy as np
 # Import BEM functions
-import GETINT.getint as getint
-import SHAPE.shape as shape
+from GETINT import getint
+from SHAPE import shape
 
 def elemt(XP,YP,NL,KINDI,XQ,YQ,XI,W,CP,Exterior):
     #
     #  Formulate element coefficient matrices
     #
     C1 = -1/(2*np.pi)
-    H = np.zeros(1,NL)
-    G = np.zeros(1,NL)
+    H = np.zeros(NL)
+    G = np.zeros(NL)
     NINP, XII, WT = getint(KINDI,XI,W)
     #
     #  Integration loop
     #
+    QN = np.zeros(2)
     for INP in range(NINP):
         PSI,DPSI = shape(XII[INP],KINDI)
         XX = 0.0
@@ -44,7 +45,7 @@ def elemt(XP,YP,NL,KINDI,XQ,YQ,XI,W,CP,Exterior):
         RY = YY-YP
         R = np.sqrt(RX**2+RY**2)
         DRDN = (QN[0]*RX+QN[1]*RY)/R
-        ALOGR = log(R)
+        ALOGR = np.log(R)
         GREEN = C1*ALOGR*DETJ*WT[INP]
         DGDN = C1*DRDN/R*DETJ*WT[INP]
         for I in range(NL):
