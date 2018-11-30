@@ -1,0 +1,23 @@
+# Header describing the problem
+NODES   # Keyword
+int1,int2   # int1=NNODE(Number of nodes) -- int2=NREC(number of nodal points data records,i.e. number of lines following in this block)
+int1,int2,real1,real2,real3,real4   # int1=N1,int2=N2(Nodal point numbers for first and last node in this record) -- real1=X1,real2=Y1(coordinates of first node) -- real3=X2,real4=Y2(coordinates of last node)
+... # total of NREC lines
+ELEMENTS   # KEYWORD
+int1,int2   # int1=NELEM(Number of elements) -- int2=NREC(number of element data records,i.e. number of lines following in this block)
+int1,int2,int3,int4   # int1=NODEI,int2=NODEL(Nodal point numbers for first and last node in this record) -- int3=NUMBER(Number of elements to be generated in this record) -- int4=KINDI(Element type: linear,quadratic,cubic...)
+... # total of NREC lines
+BOUNDARY CONDITIONS
+int1   # int1=NREC(number of BC data records,i.e. number of lines following in this block)
+int1,int2,int3,int4,int5,int6   # int1=K1 -- int2=K2 -- int3=NOD -- int4=CA1 -- int5=CB1 -- int6=CC1
+... # total of NREC lines
+FIELD
+int1   # int1=NF
+int1,int2   # int1=XF -- int2=YF
+... # total of NF lines
+
+EXTERIOR   # Keyword
+VINF     # Keyword
+
+SOLVE   # final Keyword to run the BEM simulation
+
