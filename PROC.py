@@ -14,9 +14,9 @@ from FORM import form
 from SOLVE import solve
 from SOLOUT import solout
 from EXT import ext
+from FIELD import field
 
 def proc(fid2,XI,W,NNODE,NELEM,X,Y,NODE,KIND,TEMP,XIPMAP,CA,CB,CC,FREC,Field,Exterior,Px,Py,VINF):
-#    # ????????
     if Exterior==3:
         PhiI = ext(fid2,NNODE,X,VINF)
     else:
@@ -29,14 +29,14 @@ def proc(fid2,XI,W,NNODE,NELEM,X,Y,NODE,KIND,TEMP,XIPMAP,CA,CB,CC,FREC,Field,Ext
     # save solution
     DTDN,TEMP = solout(fid2,NNODE, NELEM, KIND, NODE,CP, TEMP, CA, CB, CC, XS,Exterior)
     
-#    # ???????
-#    if Field==2:
-#        PhiP,dPhidPX,dPhidPY,QN = FIELD(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF,PhiI)
-#    else:
-#        PhiP,dPhidPX,dPhidPY = np.zeros(1,3)
+
+    if Field==2:
+        PhiP,dPhidPX,dPhidPY,QN = field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF,PhiI)
+    else:
+        PhiP,dPhidPX,dPhidPY = np.zeros(1,3)
      
-#    return CP,DTDN,TEMP,XS,A,B,PhiP,dPhidPX,dPhidPY,QN
-    return CP,DTDN,TEMP,XS,A,B
+    return CP,DTDN,TEMP,XS,A,B,PhiP,dPhidPX,dPhidPY,QN
+#    return CP,DTDN,TEMP,XS,A,B
 
 
 
