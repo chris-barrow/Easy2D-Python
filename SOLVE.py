@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-This is the gauss solver.
-
-#### NOT YET DEBUGGED!!!
+This is the gaussian elimination solver.
 
 Created on Thu Nov 22 10:51:00 2018
 @author: Simon Schmitt
@@ -13,4 +11,4 @@ import numpy as np
 
 def solve(A,B):
     XS = np.linalg.solve(A,B)
-    return XS,A,B
+    return XS

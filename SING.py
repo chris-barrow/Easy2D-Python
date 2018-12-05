@@ -3,8 +3,6 @@
 """
 This function integrates h and g on singular elements.
 
-#### NOT YET DEBUGGED!!!
-
 Created on Thu Nov 22 10:51:00 2018
 @author: Simon Schmitt
 """
@@ -14,15 +12,15 @@ import numpy as np
 from GETINT import getint
 from SHAPE import shape
 
-def sing(XP,YP,NL,KINDI,XQ,YQ,XI,W,ISING,XIPMAP,CP,Exterior):
+def sing(XP,YP,NL,KINDI,XQ,YQ,ISING,XIPMAP,CP,Exterior):
     #
     #---- CALL SETMAP in the EASY2D to set up XIPMAP(4,3) first
     #
     C1 = -1/(2*np.pi)
     H = np.zeros(NL)
     G = np.zeros(NL)
-    NINP, ETA, WT = getint(KINDI,XI,W)
-    XIP = XIPMAP[ISING, KINDI]
+    NINP, ETA, WT = getint(KINDI)
+    XIP = XIPMAP[ISING-1, KINDI-1]
     #
     #---- THIS LOOP IS FOR THE PURPOSE OF INTEGRATING TO THE RIGHT OF P
     #

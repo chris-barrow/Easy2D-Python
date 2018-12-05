@@ -15,7 +15,7 @@ def Relem(fid2, NNODE, NELEM, EREC, NODEI, NODEL, NUMBER, KINDI):
     #                                                                      #
     #     OUTPUT:                                                          #
     #     KIND = 1xNELEM matrix with order of each element                 #
-    #     NODE = max(KIND)xNELEM matrix that gives nodes for each element  #
+    #     NODE = (1+max(KIND))xNELEM matrix that gives nodes for each element#
     #     NODE ex: For a set of alternating linear and quadratic elements: #
     #     [ 1  2  4  5  7  8  ]                                            #
     #     [ 2  3  5  6  8  9  ]                                            #
@@ -62,7 +62,8 @@ def Relem(fid2, NNODE, NELEM, EREC, NODEI, NODEL, NUMBER, KINDI):
             INCREM = INCREM + KINDI[NR]
 
         if NODEI[NR] > NODEL[NR]:
-            NODE[KINDI[NR]+1, NE+NUMBER[NR]-1] = NODEL[NR]
+#            NODE[KINDI[NR]+1, NE+NUMBER[NR]-1] = NODEL[NR]
+            NODE[KINDI[NR], NE+NUMBER[NR]-2] = NODEL[NR]
 
     KIND = KIND.astype(int)
     fid2.write('\n {}  \n \n'.format('ELEMENT CONNECTIVITY:'))

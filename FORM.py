@@ -4,8 +4,6 @@
 This function sets up the system matrix A and the right-hand-side forcing 
 vector B.
 
-#### NOT YET DEBUGGED!!!
-
 Created on Tue Nov 20 10:56:09 2018
 @author: Simon Schmitt
 """
@@ -16,7 +14,7 @@ from ELEMT import elemt
 from SING import sing
 from ASSMB import assmb
 
-def form(NNODE,NELEM,NODE,KIND,X,Y,TEMP,XI,W,XIPMAP,CA,CB,CC,Exterior,PhiI):
+def form(NNODE,NELEM,NODE,KIND,X,Y,TEMP,XIPMAP,CA,CB,CC,Exterior,PhiI):
     # Initialize variables
     BIG = 1.0e15
     B = np.zeros(NNODE)
@@ -41,23 +39,19 @@ def form(NNODE,NELEM,NODE,KIND,X,Y,TEMP,XI,W,XIPMAP,CA,CB,CC,Exterior,PhiI):
                 if IQ==IP:
                     ISING = J+1
                 XQ[J] = X[int(IQ)]
-                YQ[J] = Y[int(IQ)]
-                
+                YQ[J] = Y[int(IQ)]        
             if ISING==0:
-                CP[IP],G,H,QN = elemt(XP,YP,NL,KINDI,XQ,YQ,XI,W,CP[IP],Exterior)
-#                CP[IP],G,H,QN = elemt(XP,YP,NL,KINDI,X[int(IQ)],Y[int(IQ)],XI,W,CP[IP],Exterior)
+                CP[IP],G,H,QN = elemt(XP,YP,NL,KINDI,XQ,YQ,CP[IP],Exterior)
             else:
-                CP[IP],G,H,QN = sing(XP,YP,NL,KINDI,XQ,YQ,XI,W,ISING,XIPMAP,CP[IP],Exterior)
-#                CP[IP],G,H,QN = sing(XP,YP,NL,KINDI,X[int(IQ)],Y[int(IQ)],XI,W,ISING,XIPMAP,CP[IP],Exterior)
+                CP[IP],G,H,QN = sing(XP,YP,NL,KINDI,XQ,YQ,ISING,XIPMAP,CP[IP],Exterior)
             A,B = assmb(K,NL,H,G,IP,NODE,TEMP,CA,CB,CC,A,B)
-        
         #
         #   Contribution from C(P)
         #
         if TEMP[0,IP]==BIG:
             A[IP,IP] += CP[IP]
         else:
-            B[IP] -= CP[IP]*TEMP[IP]
+            B[IP] -= CP[IP]*TEMP[0,IP]
         B[IP] += PhiI[IP]
     
     return CP,A,B,QN

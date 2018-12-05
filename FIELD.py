@@ -10,7 +10,7 @@ import numpy as np
 from GETINT import getint
 from SHAPE import shape
 
-def field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF,PhiI):
+def field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,Exterior,VINF,PhiI):
 
     PhiP = np.zeros(FREC)
     dPhidPX = np.zeros(FREC)
@@ -20,10 +20,8 @@ def field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF
     DPhidPYI = np.zeros(FREC)
     
     for IP in range(FREC):
-        
         XP = Px[IP]
         YP = Py[IP]
-        
         CP = 0
         FPT = 0
         FPDX = 0
@@ -33,8 +31,7 @@ def field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF
             CP = np.ones(NNODE)
         #
         #       ELEMENT LOOP
-        #
-        
+        #  
         for K in range(NELEM):
             KINDI = KIND[K]
             NL = KINDI+1
@@ -47,15 +44,12 @@ def field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF
                 XQ[J] = X[int(IQ)]
                 YQ[J] = Y[int(IQ)]
                 TEMQ[J] = TEMP[0,int(IQ)]
-                DTDQ[J] = DTDN[J,K]
-            
-            
+                DTDQ[J] = DTDN[J,K]  
             #
             #      INTERPOLATION
             #
-            
             C1 = -1/(2*np.pi)
-            [NINP, XII, WT] = getint(KINDI,XI,W)
+            [NINP, XII, WT] = getint(KINDI)
             for INP in range(NINP):
                 [PSI,DPSI] = shape(XII[INP],KINDI)
                 XX = 0
@@ -71,7 +65,6 @@ def field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF
                     DYDS += YQ[I]*DPSI[I]
                     TEM += TEMQ[I]*PSI[I]
                     DTN += DTDQ[I]*PSI[I]
-                
                 DETJ = np.sqrt(DXDS**2+DYDS**2)
                 QN[0] = (-1)**(Exterior)*DYDS/DETJ
                 QN[1] = -(-1)**(Exterior)*DXDS/DETJ
@@ -93,7 +86,6 @@ def field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF
                 FPDY += DGDY*DTN-TEM*DYDGDN
                 CP -= DGDN
             
-        
         if Exterior!=3:
             PhiP[IP] = FPT
             dPhidPX[IP] = FPDX
@@ -105,22 +97,9 @@ def field(fid2,Px,Py,FREC,NNODE,NELEM,KIND,NODE,X,Y,TEMP,DTDN,XI,W,Exterior,VINF
             PhiP[IP] = FPT+PhiPI[IP]
             dPhidPX[IP] = FPDX+DPhidPXI[IP]
             dPhidPY[IP] = FPDY+DPhidPYI[IP]
-        
-            
-    
        
     fid2.write('\n {} \n \n'.format('FIELD POINTS COORDINATES AND SOLUTION:'))
-    if Exterior!=3:
-        for K in range(FREC):
-#            fid2.write('%s %i \t %s  %3.3f  %s  %3.3f   %s  %3.3f   %s  %3.3f   %s  %3.3f \n', 'FIELD POINT # ',K ,'X=', Px(K), 'Y', Py(K), 'Temperature=', PhiP(K), 'Flux(X)=', dPhidPX(K), 'Flux(Y)=', dPhidPY(K))
-#            fprintf(fid2,'%s %i \t %s  %3.3f  %s  %3.3f   %s  %3.3f   %s  %3.3f   %s  %3.3f \n', 'FIELD POINT # ',K ,'X=', Px(K), 'Y', Py(K), 'Temperature=', PhiP(K), 'Flux(X)=', dPhidPX(K), 'Flux(Y)=', dPhidPY(K));
-            fid2.write('{} {:d} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f}\n'.format('FIELD POINT # ', K+1, 'X =', float(Px[K]) , 'Y =', float(Py[K]), 'Temperature=', float(PhiP[K]), 'Flux(X)=', float(dPhidPX[K]), 'Flux(Y)=', float(dPhidPY[K]) ))
-    
-    else:
-        for K in range(FREC):
-#            fid2.write('%s %i \t %s  %3.3f  %s  %3.3f   %s  %3.3f   %s  %3.3f   %s  %3.3f \n', 'FIELD POINT # ',K ,'X=', Px(K), 'Y', Py(K), 'Phi=', PhiP(K), 'Velocity(X)=', dPhidPX(K), 'Velocity(Y)=', dPhidPY(K))
-#            fprintf(fid2,'%s %i \t %s  %3.3f  %s  %3.3f   %s  %3.3f   %s  %3.3f   %s  %3.3f \n', 'FIELD POINT # ',K ,'X=', Px(K), 'Y', Py(K), 'Phi=', PhiP(K), 'Velocity(X)=', dPhidPX(K), 'Velocity(Y)=', dPhidPY(K));
-            fid2.write('{} {:d} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f}\n'.format('FIELD POINT # ', K+1, 'X =', float(Px[K]) , 'Y =', float(Py[K]), 'PHI =', float(PhiP[K]), 'Velocity(X)=', float(dPhidPX[K]), 'Velocity(Y)=', float(dPhidPY[K]) ))
-    
+    for K in range(FREC):
+        fid2.write('{} {:d} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f} \t {} {:3.3f}\n'.format('FIELD POINT # ', K+1, 'X=', float(Px[K]) , 'Y=', float(Py[K]), 'PHI=', float(PhiP[K]), 'dPHIdX=', float(dPhidPX[K]), 'dPHIdY=', float(dPhidPY[K]) ))
     
     return PhiP,dPhidPX,dPhidPY,QN

@@ -3,8 +3,6 @@
 """
 This function integrates h and g on each element.
 
-#### NOT YET DEBUGGED!!!
-
 Created on Thu Nov 22 10:37:23 2018
 @author: Simon Schmitt
 """
@@ -14,14 +12,14 @@ import numpy as np
 from GETINT import getint
 from SHAPE import shape
 
-def elemt(XP,YP,NL,KINDI,XQ,YQ,XI,W,CP,Exterior):
+def elemt(XP,YP,NL,KINDI,XQ,YQ,CP,Exterior):
     #
     #  Formulate element coefficient matrices
     #
     C1 = -1/(2*np.pi)
     H = np.zeros(NL)
     G = np.zeros(NL)
-    NINP, XII, WT = getint(KINDI,XI,W)
+    NINP, XII, WT = getint(KINDI)
     #
     #  Integration loop
     #

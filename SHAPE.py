@@ -3,8 +3,6 @@
 """
 This function is used to get the shape functions.
 
-### NOT YET DEBUGGED!!!
-
 Created on Thu Nov 22 10:50:09 2018
 @author: Simon Schmitt
 """
@@ -20,7 +18,6 @@ def shape(XI,KINDI):
         PSI[1] = 0.5*(1.0+XI)
         DPSI[0] = -0.5
         DPSI[1] = 0.5
-    
     # Quadratic Elements
     elif KINDI == 2:
         PSI[0] = 0.5*XI*(XI-1.0)
@@ -29,7 +26,6 @@ def shape(XI,KINDI):
         DPSI[0] = XI-0.5
         DPSI[1] = -2.0*XI
         DPSI[2] = XI+0.5
-    
     # Cubic Elements
     elif KINDI == 3:
         PSI[0] = 9./16.*(1./9.-XI**2)*(XI-1.0)
@@ -40,5 +36,4 @@ def shape(XI,KINDI):
         DPSI[1] = 27./16.*(3.*XI**2-2./3.*XI-1.)
         DPSI[2] = 27./16.*(-3.*XI**2-2./3.*XI+1.)
         DPSI[3] = -9./16.*(-3.*XI**2-2.*XI+1./9.)
-    
     return PSI,DPSI

@@ -14,18 +14,23 @@ def BC(fid2, NNODE, NELEM, NODE, KIND, BREC, K1, K2, NOD, CA1, CB1, CC1):
     #  (CA)*PHI + (CB)*dPHI/dN = CC                             #
     #############################################################
     BIG = 1.0e15
-    rows = max(KIND) + 1
+#    rows = max(KIND) + 1
+#    rows = max(KIND) 
     TEMP = np.full((1, NNODE), BIG)
-    # DTDN = np.full((4, NELEM), BIG)
-    CA = np.full((rows, NELEM), BIG)
-    CB = np.full((rows, NELEM), BIG)
-    CC = np.full((rows, NELEM), BIG)
+    DTDN = np.full((4, NELEM), BIG)
+    CA = np.full((4, NELEM), BIG)
+    CB = np.full((4, NELEM), BIG)
+    CC = np.full((4, NELEM), BIG)
+#    CA = np.full((rows, NELEM), BIG)
+#    CB = np.full((rows, NELEM), BIG)
+#    CC = np.full((rows, NELEM), BIG)
 
     [CA, CB, CC] = Rbc(BREC, KIND, K1, K2, NOD, CA, CB, CC, CA1, CB1, CC1)
     # ALARM='FALSE'
-    for K in range(0, NELEM):
+    for K in range(NELEM):
         KINDI = KIND[K]
-        for J in range(0, KINDI+1):
+#        for J in range(KINDI+1):
+        for J in range(KINDI):
             NOD = NODE[J, K]
             if CA[J, K] == BIG and CB[J, K] == BIG:
                 fid2.write('{} {} \n'.format('B.C. NOT SPECIFIED ON ELEMENT #',
@@ -37,19 +42,19 @@ def BC(fid2, NNODE, NELEM, NODE, KIND, BREC, K1, K2, NOD, CA1, CB1, CC1):
                 # ALARM='TRUE'
 
             if CB[J, K] == 0:
-                TM = TEMP[NOD]
+                TM = TEMP[0,int(NOD)]
                 TP = CC[J, K]/CA[J, K]
-                TEMP[NOD] = TP
+                TEMP[0,int(NOD)] = TP
                 if TM != BIG and TP != TM:
                     fid2.write('{}  {} \n'.format('MORE THAN ONE TEMP. '
                                                   'AT NODE #', K))
                     # ALARM='TRUE'
 
     fid2.write('\n {}  \n \n'.format('BOUNDARY CONDITIONS:'))
-    for K in range(0, NELEM):
+    for K in range(NELEM):
         KINDI = KIND[K]
         fid2.write('{}  {} \n'.format('ELEMENT #', K+1))
-        for J in range(0, KINDI+1):
+        for J in range(KINDI+1):
             fid2.write('{} {} \t {} {:3.3f} {} {:3.3f} {} {:3.3f} \n'.format(
                 'LOCAL NODE # ', J+1, 'CA=', CA[J, K], 'CB=', CB[J, K], 'CC=',
                 CC[J, K]))
@@ -66,6 +71,7 @@ def Rbc(BREC, KIND, K1, K2, NOD, CA, CB, CC, CA1, CB1, CC1):
             if NOD[I] == 0:  # Checks to see if BC applies to all nodes
                 JS = 1  # If so, specifies the start to be the first node
                 JE = KINDI + 1  # Specifies end to be the last node of element
+#                JE = KINDI  # Specifies end to be the last node of element
 
             for J in range(JS - 1, JE):  # Indexing through each node in elem
                 CA[J, K] = CA1[I]  # Assigns input BCs to coefficient matrices

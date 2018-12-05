@@ -53,6 +53,7 @@ def PREP(inputfilename):
     Field = 0
     Exterior = 0
     FREC = 0
+    VINF = 0
     try:
         FIELD_idx = inputText.index('FIELD')
         FREC = np.fromstring(inputText[FIELD_idx+1], dtype=int, sep=',')[0]
@@ -102,7 +103,8 @@ def PREP(inputfilename):
     CC1 = bcs[:, 5]
     [TEMP, CA, CB, CC] = BC(outputFile, NNODE, NELEM, NODE, KIND, BREC, K1, K2,
                             NOD, CA1, CB1, CC1)
-
+    Px = []
+    Py = []
     if Field == 2:
         FIELDS = np.zeros((FREC, 2))
         for l, FIELD in enumerate(inputText[FIELD_idx+2:FIELD_idx+FREC+2]):
