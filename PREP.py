@@ -4,7 +4,7 @@ from Relem import Relem
 from BC import BC
 
 
-def PREP(inputfilename):
+def prep(inputfilename):
     """
     PREPROCESSOR
     """

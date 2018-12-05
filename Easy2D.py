@@ -6,31 +6,32 @@ A Boundary Element Method (BEM) solver using python.
 Author(s):
     Christopher Barrow
     Simon Schmitt
-    
+
 
 """
 
-import os
 import numpy as np
-import PREP
+from PREP import prep
 from PROC import proc
 from POST import post
 
+
 def easy2D(inputFileName=None):
-    if inputFileName == None:
+    if inputFileName is None:
         inputFileName = input('Specify input file name: ')
 
     XIPMAP = SETMAP()
-    [fid2, NNODE, NELEM, X, Y, NODE, KIND, TEMP, CA, CB, CC, FREC, Field, 
-     Exterior, Px, Py, VINF] = PREP.PREP(inputFileName)
-    [CP,DTDN,TEMP,XS,A,B,PhiP,dPhidPX,dPhidPY,QN] = proc(fid2, NNODE, NELEM, 
-    X, Y, NODE, KIND, TEMP, XIPMAP, CA,CB, CC, FREC,Field, Exterior,Px,Py,VINF)
-    post(X,Y,DTDN,TEMP,Px, Py,PhiP,dPhidPX,dPhidPY)
-
+    [fid2, NNODE, NELEM, X, Y, NODE, KIND, TEMP, CA, CB, CC, FREC, Field,
+     Exterior, Px, Py, VINF] = prep(inputFileName)
+    [CP, DTDN, TEMP, XS, A, B, PhiP,
+     dPhidPX, dPhidPY, QN] = proc(fid2, NNODE, NELEM, X, Y, NODE, KIND, TEMP,
+                                  XIPMAP, CA, CB, CC, FREC, Field, Exterior,
+                                  Px, Py, VINF)
+    post(X, Y, DTDN, TEMP, Px, Py, PhiP, dPhidPX, dPhidPY)
 
 
 def SETMAP():
-    XIPMAP = np.zeros((4,3))
+    XIPMAP = np.zeros((4, 3))
     # Linear Elements
     XIPMAP[0, 0] = -1
     XIPMAP[1, 0] = 1
