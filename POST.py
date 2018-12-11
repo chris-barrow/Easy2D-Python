@@ -9,7 +9,7 @@ Created on Thu Nov 15 15:58:55 2018
 # Import necessary Python Packages
 import numpy as np
 import matplotlib.pyplot as plt
-#import scipy.interpolate as interp
+import scipy.interpolate as interp
 
 def post(X,Y,DTDN,TEMP,Px, Py,PhiP,dPhidPX,dPhidPY):
     X = X.reshape(len(X))
@@ -18,6 +18,8 @@ def post(X,Y,DTDN,TEMP,Px, Py,PhiP,dPhidPX,dPhidPY):
     Xdat = np.append(X,Px);
     Ydat = np.append(Y,Py)
     Zdat = np.append(TEMP,PhiP)
+    dx = np.append(DTDN[0],dPhidPX)
+    dy = np.append(DTDN[1],dPhidPY)
     X = np.append(X,X[0])
     Y = np.append(Y,Y[0])
     levels = np.arange(Zdat.min()-0.15,Zdat.max()+0.15,0.1)
@@ -26,9 +28,9 @@ def post(X,Y,DTDN,TEMP,Px, Py,PhiP,dPhidPX,dPhidPY):
 #    plt.tricontourf(Xdat,Ydat,Zdat,11,cmap='jet')
     plt.tricontourf(Xdat,Ydat,Zdat,levels,cmap='jet')
     plt.colorbar()
-#    plt.quiver(Px,Py,dPhidPX,dPhidPY)
-#    Xi, Yi, Zi1 = grid(Px, Py, dPhidPX)
-#    Xi, Yi, Zi2 = grid(Px, Py, dPhidPY)
+#    plt.quiver(X,Y,dx,dy)
+#    Xi, Yi, Zi1 = grid(Xdat, Ydat, dx)
+#    Xi, Yi, Zi2 = grid(Xdat, Ydat, dy)
 #    plt.streamplot(Xi,Yi,Zi1,Zi2)
     return 
 #
@@ -81,15 +83,15 @@ def post(X,Y,DTDN,TEMP,Px, Py,PhiP,dPhidPX,dPhidPY):
 #    plt.streamplot(Xi,Yi,Zi1,Zi2)
 #    return 
 
-
 #
-#def grid(x, y, z, resX=2, resY=2):
-#    # Convert 3 column data to matplotlib grid
-#    xi = np.linspace(min(x), max(x), resX)
-#    yi = np.linspace(min(y), max(y), resY)
-#    Zi = interp.griddata((x, y), z, (xi[None,:], yi[:,None]), method='nearest')
-#    Xi, Yi = np.meshgrid(xi, yi)
-#    return Xi, Yi, Zi
+#
+def grid(x, y, z, resX=2, resY=2):
+    # Convert 3 column data to matplotlib grid
+    xi = np.linspace(min(x), max(x), resX)
+    yi = np.linspace(min(y), max(y), resY)
+    Zi = interp.griddata((x, y), z, (xi[None,:], yi[:,None]), method='nearest')
+    Xi, Yi = np.meshgrid(xi, yi)
+    return Xi, Yi, Zi
 
 
 
