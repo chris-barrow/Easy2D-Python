@@ -1,4 +1,4 @@
-TEST CASE #6 : FEILD POINTS
+TEST CASE #6 : Velocity Potential, invisible boundary, phi=VINF*x
 NODES
 16,4
 1,5,0,0,1,0

@@ -28,6 +28,7 @@ def post(X,Y,DTDN,TEMP,Px, Py,PhiP,dPhidPX,dPhidPY):
 #    plt.tricontourf(Xdat,Ydat,Zdat,11,cmap='jet')
     plt.tricontourf(Xdat,Ydat,Zdat,levels,cmap='jet')
     plt.colorbar()
+    plt.axis('equal')
 #    plt.quiver(X,Y,dx,dy)
 #    Xi, Yi, Zi1 = grid(Xdat, Ydat, dx)
 #    Xi, Yi, Zi2 = grid(Xdat, Ydat, dy)
