@@ -1,4 +1,4 @@
-TEST CASE #2 : Scattering Problem
+TEST CASE #7 : Cylinder in cross-flow, phi=VINF*(x+radius**2*x/(x**2+y**2))
 NODES
 100,100
 1,1,2.000,0.000,2.000,0.000
