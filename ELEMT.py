@@ -6,26 +6,27 @@ This function integrates h and g on each element.
 Created on Thu Nov 22 10:37:23 2018
 @author: Simon Schmitt
 """
+
 # Import necessary Python Packages
 import numpy as np
+
 # Import BEM functions
 from GETINT import getint
 from SHAPE import shape
 
-def elemt(XP,YP,NL,KINDI,XQ,YQ,CP,Exterior):
-    #
-    #  Formulate element coefficient matrices
-    #
+
+def elemt(XP, YP, NL, KINDI, XQ, YQ, CP, Exterior):
+
+    # Formulate element coefficient matrices
     C1 = -1/(2*np.pi)
     H = np.zeros(NL)
     G = np.zeros(NL)
     NINP, XII, WT = getint(KINDI)
-    #
+
     #  Integration loop
-    #
     QN = np.zeros(2)
     for INP in range(NINP):
-        PSI,DPSI = shape(XII[INP],KINDI)
+        PSI, DPSI = shape(XII[INP], KINDI)
         XX = 0.0
         YY = 0.0
         DXDS = 0.0
@@ -35,7 +36,7 @@ def elemt(XP,YP,NL,KINDI,XQ,YQ,CP,Exterior):
             YY = YY+YQ[I]*PSI[I]
             DXDS = DXDS+XQ[I]*DPSI[I]
             DYDS = DYDS+YQ[I]*DPSI[I]
-        
+
         DETJ = np.sqrt(DXDS**2+DYDS**2)
         QN[0] = (-1)**(Exterior)*DYDS/DETJ
         QN[1] = -(-1)**(Exterior)*DXDS/DETJ
@@ -50,4 +51,4 @@ def elemt(XP,YP,NL,KINDI,XQ,YQ,CP,Exterior):
             H[I] = H[I]+PSI[I]*DGDN
             G[I] = G[I]+PSI[I]*GREEN
         CP = CP-DGDN
-    return CP,G,H,QN
+    return CP, G, H, QN

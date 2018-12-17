@@ -10,12 +10,14 @@ Created on Mon Nov 26 17:35:38 2018
 """
 import numpy as np
 
-def ext(fid2,NNODE,X,VINF):
+
+def ext(fid2, NNODE, X, VINF):
     PhiI = np.zeros(NNODE)
     for I in range(NNODE):
-         PhiI[I]=VINF*X[I]
-         
-    fid2.write('\n {}  \n \n'.format('==============EXTERIOR PROBLEM:====================='))
-    fid2.write('{} \n'.format('V infiniti = '+str(VINF)))
-    
+        PhiI[I] = VINF*X[I]
+
+    fid2.write('\n {}  \n \n'.format('==============EXTERIOR PROBLEM:'
+                                     '====================='))
+    fid2.write('{} \n'.format('V infinity = '+str(VINF)))
+
     return PhiI
