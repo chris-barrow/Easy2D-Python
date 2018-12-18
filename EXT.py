@@ -22,6 +22,9 @@ def ext(fid2, NNODE, X, Y, VINF, ALPHA):
 
     fid2.write('\n {}  \n \n'.format('==============EXTERIOR PROBLEM:'
                                      '====================='))
-    fid2.write('{} \n'.format('V infinity = '+str(VINF)))
+    if VINF != 0:
+        fid2.write('{} \n'.format('V infinity = '+str(VINF)))
+    elif ALPHA != 0:
+        fid2.write('{} \n'.format('ALPHA = '+str(ALPHA)))
 
     return PhiI

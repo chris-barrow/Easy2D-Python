@@ -13,7 +13,7 @@ from SHAPE import shape
 
 
 def field(fid2, Px, Py, FREC, NNODE, NELEM, KIND, NODE, X, Y, TEMP, DTDN,
-          Exterior, VINF, PhiI):
+          Exterior, VINF, ALPHA, PhiI):
 
     PhiP = np.zeros(FREC)
     dPhidPX = np.zeros(FREC)
@@ -92,9 +92,16 @@ def field(fid2, Px, Py, FREC, NNODE, NELEM, KIND, NODE, X, Y, TEMP, DTDN,
             dPhidPX[IP] = FPDX
             dPhidPY[IP] = FPDY
         else:
-            PhiPI[IP] = VINF*XP
-            DPhidPXI[IP] = VINF
-            DPhidPYI[IP] = 0
+            if VINF != 0:
+                PhiPI[IP] = VINF*XP
+                DPhidPXI[IP] = VINF
+                DPhidPYI[IP] = 0
+            elif ALPHA != 0:
+                PhiPI[IP] = -ALPHA/(2*np.pi)*np.log(np.sqrt(XP**2 + YP**2))
+                # DPhidPXI[IP] = -ALPHA/(2*np.pi*np.sqrt(XP**2 + YP**2))
+                # DPhidPYI[IP] = -ALPHA/(2*np.pi*np.sqrt(XP**2 + YP**2))
+                DPhidPXI[IP] = 0
+                DPhidPYI[IP] = 0
             PhiP[IP] = FPT+PhiPI[IP]
             dPhidPX[IP] = FPDX+DPhidPXI[IP]
             dPhidPY[IP] = FPDY+DPhidPYI[IP]

@@ -36,7 +36,7 @@ def proc(fid2, NNODE, NELEM, X, Y, NODE, KIND, TEMP, XIPMAP, CA, CB, CC, FREC,
     if Field == 2:
         PhiP, dPhidPX, dPhidPY, QN = field(fid2, Px, Py, FREC, NNODE, NELEM,
                                            KIND, NODE, X, Y, TEMP, DTDN,
-                                           Exterior, VINF, PhiI)
+                                           Exterior, VINF, ALPHA, PhiI)
     else:
         PhiP = []
         dPhidPX = []

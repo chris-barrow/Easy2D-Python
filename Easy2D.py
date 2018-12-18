@@ -48,9 +48,9 @@ def SETMAP():
 
 
 if __name__ == "__main__":
-#    easy2D("TestCase1.dat")
-#    easy2D("TestCase2.dat")
-#    easy2D("TestCase3.dat")
-#    easy2D("TestCase4.dat")
-#    easy2D("TestCase6.dat")
-    easy2D("TestCase7.dat")
+    # easy2D("TestCase1.dat")
+    # easy2D("TestCase2.dat")
+    # easy2D("TestCase3.dat")
+    # easy2D("TestCase4.dat")
+    # easy2D("TestCase6.dat")
+    easy2D("TestCase5.dat")
