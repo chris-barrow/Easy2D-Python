@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This function is the BEM Processor, taking its input from the preprocessor
-PREP, and writing the solution out in outputfiles.
+PREP, and writing the solution out in output files.
 
 Created on Thu Nov 15 15:58:55 2018
 @author: Simon Schmitt
@@ -18,9 +18,9 @@ from FIELD import field
 
 
 def proc(fid2, NNODE, NELEM, X, Y, NODE, KIND, TEMP, XIPMAP, CA, CB, CC, FREC,
-         Field, Exterior, Px, Py, VINF):
+         Field, Exterior, Px, Py, VINF, ALPHA):
     if Exterior == 3:
-        PhiI = ext(fid2, NNODE, X, VINF)
+        PhiI = ext(fid2, NNODE, X, Y, VINF, ALPHA)
     else:
         PhiI = np.zeros(NNODE)
 

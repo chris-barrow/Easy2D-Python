@@ -22,11 +22,11 @@ def easy2D(inputFileName=None):
 
     XIPMAP = SETMAP()
     [fid2, NNODE, NELEM, X, Y, NODE, KIND, TEMP, CA, CB, CC, FREC, Field,
-     Exterior, Px, Py, VINF] = prep(inputFileName)
+     Exterior, Px, Py, VINF, ALPHA] = prep(inputFileName)
     [CP, DTDN, TEMP, XS, A, B, PhiP,
      dPhidPX, dPhidPY, QN] = proc(fid2, NNODE, NELEM, X, Y, NODE, KIND, TEMP,
                                   XIPMAP, CA, CB, CC, FREC, Field, Exterior,
-                                  Px, Py, VINF)
+                                  Px, Py, VINF, ALPHA)
     post(X, Y, DTDN, TEMP, Px, Py, PhiP, dPhidPX, dPhidPY)
 
 

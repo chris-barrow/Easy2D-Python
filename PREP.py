@@ -54,6 +54,7 @@ def prep(inputfilename):
     Exterior = 0
     FREC = 0
     VINF = 0
+    ALPHA = 0
     try:
         FIELD_idx = inputText.index('FIELD')
         FREC = np.fromstring(inputText[FIELD_idx+1], dtype=int, sep=',')[0]
@@ -66,6 +67,9 @@ def prep(inputfilename):
         if 'VINF' in inputText:
             VINF = np.fromstring(inputText[inputText.index('VINF')+1],
                                  dtype=int, sep=',')[0]
+        elif 'ALPHA' in inputText:
+            ALPHA = np.fromstring(inputText[inputText.index('ALPHA')+1],
+                                  dtype=int, sep=',')[0]
 
     outputFile.write('{}\n\n'.format(inputText[0]))
     nodes = np.zeros((NREC, 6))
@@ -114,4 +118,4 @@ def prep(inputfilename):
         Py = FIELDS[:, 1]
 
     return [outputFile, NNODE, NELEM, X, Y, NODE, KIND, TEMP, CA, CB, CC, FREC,
-            Field, Exterior, Px, Py, VINF]
+            Field, Exterior, Px, Py, VINF, ALPHA]
